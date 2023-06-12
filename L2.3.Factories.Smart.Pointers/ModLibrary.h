@@ -11,7 +11,7 @@ class ModLibrary : public Library {
 public:
 
 	ModLibrary() {
-		inventory["child3"] = make_shared<Child3Factory>();
+		inventory["child3"] = static_pointer_cast<ObjectFactory>(make_shared<Child3Factory>());
 	}
 };
 

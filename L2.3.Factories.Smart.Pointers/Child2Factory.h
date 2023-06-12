@@ -4,7 +4,7 @@
 #include"ObjectFactory.h"
 #include"Child2.h"
 
-class Child2Factory : ObjectFactory {
+class Child2Factory : public ObjectFactory {
 public:
 	Object* create() { return((Object*)(new Child2())); }
 };

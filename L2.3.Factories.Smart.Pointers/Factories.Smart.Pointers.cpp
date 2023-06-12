@@ -31,10 +31,9 @@ int main() {
 	//Display utility of the object factory
 	std::vector<std::unique_ptr<Object>> objects;
 	
-
 	for (int i = 0; i<N; i++) {
 
-		/*Randomly demand one of two types of object*/
+		// Randomly demand one of two types of object
 		int tmp = rand() % 3 + 1;
 		switch (tmp) {
 		case 1:
@@ -60,10 +59,10 @@ int main() {
 		if (modLibrary->inventory.find(objectType) != modLibrary->inventory.end()) {
 			newObject = ((*(modLibrary->inventory.find(objectType))).second)->create();
 		}
-
+		
 		//Load the resultant object into the game space
 		if (newObject != nullptr) {
-			objects.push_back(std::make_unique<Object>(newObject));
+			objects.emplace_back(std::move(newObject));
 		}
 
 	}
@@ -73,7 +72,7 @@ int main() {
 	for (objectsIter = objects.begin(); objectsIter != objects.end(); objectsIter++) {
 		cout << (*objectsIter)->getNumber() << endl;
 	}
-
+	
 	system("PAUSE");
 
 	return 0;
