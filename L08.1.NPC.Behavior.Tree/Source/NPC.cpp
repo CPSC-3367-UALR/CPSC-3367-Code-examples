@@ -52,10 +52,10 @@ void NPC::Initialize()
 		Sequence* returnToOrigin = new Sequence(behaviorTree, decideBehavior);
 		decideBehavior->addChild(returnToOrigin);
 			//add leaf tasks to sequence
-			TurnToward* turnTowardEnemy = new TurnToward(behaviorTree, returnToOrigin);
+			turnTowardEnemy = new TurnToward(behaviorTree, returnToOrigin);
 			returnToOrigin->addChild(turnTowardEnemy);
 
-			MoveToward* moveTowardEnemy = new MoveToward();
+			moveTowardEnemy = new MoveToward();
 			returnToOrigin->addChild(moveTowardEnemy);
 			
 		Spin* patrol = new Spin(behaviorTree, decideBehavior);

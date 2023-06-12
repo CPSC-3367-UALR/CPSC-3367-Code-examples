@@ -44,6 +44,8 @@ int main(int argc, char *argv[])
 		exit(1);
 	}
 	
+	Task::blackboard = new Blackboard();
+
 	std::vector<GameObject*> objects;
 	//Initialize Game Object
 	GameObject* object = new GameObject();
@@ -53,9 +55,10 @@ int main(int argc, char *argv[])
 	object2->Initialize(gDevice, "enemy", "./Assets/Images/Megaman.png");
 	objects.push_back(object2);
 
-	Task::blackboard = new Blackboard();
+	
 	Task::blackboard->objects = objects;
 	//Initialize Termination Criteria
+
 	bool quit = false;
 
 	//While the user hasn't quit
@@ -79,7 +82,7 @@ int main(int argc, char *argv[])
 		//Object handles relevant events
 		//
 		object->event = event;
-
+	
 		//
 		//Conduct the update (i.e., physics/animation)
 		//
@@ -95,6 +98,7 @@ int main(int argc, char *argv[])
 		{
 			object->GetComponent<Sprite>()->Draw();
 		}
+		
 		if (object2->GetComponent<Sprite>() != nullptr)
 		{
 			object2->GetComponent<Sprite>()->Draw();

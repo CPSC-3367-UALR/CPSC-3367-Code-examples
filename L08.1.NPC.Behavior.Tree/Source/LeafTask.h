@@ -13,8 +13,8 @@ protected:
 	void childSuccess() {}
 	void childFail() {}
 	void childRunning() {}
-	bool addChildToTask(Task* childTask) {}
-	int getChildCount() {}
-	Task* getChild(int index) {}
+	bool addChildToTask(Task* childTask) { return false; }
+	int getChildCount() { return 0; }
+	Task* getChild(int index) { return nullptr; }
 };
 

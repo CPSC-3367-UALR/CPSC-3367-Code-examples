@@ -15,8 +15,10 @@ UserInput::~UserInput()
 
 void UserInput::Initialize()
 {
-	//puts the memory location of the player's position in the blackboar, so that it will always be upated!
-	Task::blackboard->playerPosition = &(owner->GetComponent<Sprite>()->position);
+	//puts the memory location of the player's position in the blackboard, so that it will always be upated!
+	if (Task::blackboard != nullptr) {
+		Task::blackboard->playerPosition = &(owner->GetComponent<Sprite>()->position);
+	}
 }
 
 void UserInput::HandleEvent(SDL_Event * event)

@@ -4,6 +4,7 @@
 #include "SpriteComponent.h"
 #include "UserInputComponent.h"
 #include "Texture.h"
+#include <string>
 
 Sprite::Sprite(GameObject* owner) : Component(owner)
 {
@@ -63,8 +64,10 @@ void Sprite::Finish() {}
 void Sprite::Draw()
 {
 	texture->renderEx(gDevice->getRenderer(), (int)xPosition, (int)yPosition, angle, &clipArray[spriteID]);
-	std::string command = owner->GetComponent<UserInput>()->getCommand();
-	if (command != "")
+	UserInput* userInput = owner->GetComponent<UserInput>();
+	std::string command = userInput != nullptr ? userInput->getCommand() : "";
+	
+	if (!command.empty())
 	{
 		//Render Command to Text
 		SDL_Color textColor = { 255, 255, 51 };

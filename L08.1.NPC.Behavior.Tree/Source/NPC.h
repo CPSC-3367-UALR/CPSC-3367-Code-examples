@@ -1,5 +1,6 @@
 #pragma once
 #include "Component.h"
+#include "BehaviorTree.h"
 class Task;
 class GameObject;
 class Blackboard;
