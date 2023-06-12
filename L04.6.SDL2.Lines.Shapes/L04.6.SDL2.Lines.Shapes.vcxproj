@@ -90,8 +90,7 @@
 copy "$(ProjectDir)ThirdParty\SDL2_image-2.0.2\lib\x86\*.dll" "$(ProjectDir)"</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>move "$(ProjectDir)*.dll" "$(ProjectDir)Game"
-xcopy "$(ProjectDir)Assets" "$(ProjectDir)Game\Assets" /E /I /F /Y</Command>
+      <Command>move "$(ProjectDir)*.dll" "$(ProjectDir)Game"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
