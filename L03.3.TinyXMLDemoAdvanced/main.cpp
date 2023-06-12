@@ -70,8 +70,8 @@ int main(void){
 		settings.m_name="HitchHikerApp";
 		settings.m_messages["Welcome"]="Don't Panic";
 		settings.m_messages["Farewell"]="Thanks for all the fish";
-		settings.m_windows.push_back(WindowSettings(15,25,300,250,"BookFrame"));
-		settings.m_windows.push_back(WindowSettings(-15,225,111,7,"OtherFrame"));
+		settings.m_windows.emplace_back(WindowSettings(15,25,300,250,"BookFrame"));
+		settings.m_windows.emplace_back(WindowSettings(-15,225,111,7,"OtherFrame"));
 		settings.m_connection.ip="192.168.0.77";
 		settings.m_connection.timeout=42.0;
 		settings.save("appsettings2.xml");
@@ -160,22 +160,6 @@ void AppSettings::save(const char* pFilename)
 	doc.SaveFile(pFilename);  
 }
 
-//Running this with the modified main produces this file:
-//
-//<?xml version="1.0" ?>
-//<HitchHikerApp>
-//    <!-- Settings for HitchHikerApp -->
-//    <Messages>
-//        <Farewell>Thanks for all the fish</Farewell>
-//        <Welcome>Don&apos;t Panic</Welcome>
-//    </Messages>
-//    <Windows>
-//        <Window name="BookFrame" x="15" y="25" w="300" h="250" />
-//    </Windows>
-//    <Connection ip="192.168.0.77" timeout="42.000000" />
-//</HitchHikerApp>
-
-
 void AppSettings::load(const char* pFilename)
 {
 	tinyxml2::XMLDocument doc;
@@ -205,7 +189,7 @@ void AppSettings::load(const char* pFilename)
 	{
 		m_messages.clear(); // trash existing table
 
-		pElem=hRoot.FirstChild().FirstChild().ToElement();
+		pElem=hRoot.FirstChildElement().FirstChildElement().ToElement();
 		for( pElem; pElem; pElem=pElem->NextSiblingElement())
 		{
 			const char *pKey=pElem->Value();
@@ -221,7 +205,7 @@ void AppSettings::load(const char* pFilename)
 	{
 		m_windows.clear(); // trash existing list
 
-		tinyxml2::XMLElement* pWindowNode=hRoot.FirstChild( ).FirstChild().ToElement();
+		tinyxml2::XMLElement* pWindowNode = hRoot.FirstChildElement("Windows").FirstChildElement().ToElement();
 		for( pWindowNode; pWindowNode; pWindowNode=pWindowNode->NextSiblingElement())
 		{
 			WindowSettings w;
