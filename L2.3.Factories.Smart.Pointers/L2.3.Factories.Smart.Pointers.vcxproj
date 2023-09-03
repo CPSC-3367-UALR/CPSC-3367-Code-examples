@@ -83,6 +83,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -112,17 +113,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Child1.cpp" />
-    <ClCompile Include="Child1Factory.cpp" />
-    <ClCompile Include="Child2.cpp" />
-    <ClCompile Include="Child2Factory.cpp" />
-    <ClCompile Include="Child3.cpp" />
-    <ClCompile Include="Child3Factory.cpp" />
-    <ClCompile Include="Library.cpp" />
-    <ClCompile Include="ModLibrary.cpp" />
     <ClCompile Include="Object.cpp" />
-    <ClCompile Include="BaseLibrary.cpp" />
-    <ClCompile Include="ObjectFactory.cpp" />
     <ClCompile Include="Factories.Smart.Pointers.cpp" />
   </ItemGroup>
   <ItemGroup>

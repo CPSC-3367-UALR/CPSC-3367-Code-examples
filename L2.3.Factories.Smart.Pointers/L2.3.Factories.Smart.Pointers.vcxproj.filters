@@ -18,38 +18,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Child1.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Child2.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Child3.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Child1Factory.cpp">
-      <Filter>Factory Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Child2Factory.cpp">
-      <Filter>Factory Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Child3Factory.cpp">
-      <Filter>Factory Files</Filter>
-    </ClCompile>
     <ClCompile Include="Object.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Library.cpp">
-      <Filter>Factory Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ModLibrary.cpp">
-      <Filter>Factory Files</Filter>
-    </ClCompile>
-    <ClCompile Include="BaseLibrary.cpp">
-      <Filter>Factory Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjectFactory.cpp">
-      <Filter>Factory Files</Filter>
     </ClCompile>
     <ClCompile Include="Factories.Smart.Pointers.cpp">
       <Filter>Source Files</Filter>

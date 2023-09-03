@@ -5,13 +5,12 @@
 #include"Child3Factory.h"
 
 
-
 class ModLibrary : public Library {
 
 public:
 
 	ModLibrary() {
-		inventory["child3"] = static_pointer_cast<ObjectFactory>(make_shared<Child3Factory>());
+		inventory["child3"] = std::make_unique<Child3Factory>();
 	}
 };
 

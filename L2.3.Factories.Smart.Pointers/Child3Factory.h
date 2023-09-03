@@ -6,7 +6,7 @@
 
 class Child3Factory : public ObjectFactory {
 public:
-	Object* create() { return((Object*)(new Child3())); }
+	std::unique_ptr<Object> create() { return std::make_unique<Child3>(); }
 };
 
 

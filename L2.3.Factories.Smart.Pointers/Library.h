@@ -12,7 +12,8 @@ using namespace std;
 class Library {
 
 public:
-	map<string, shared_ptr<ObjectFactory>> inventory;
+	//map that represents the inventory of objects that will be part of the game
+	std::map<std::string, std::unique_ptr<ObjectFactory>> inventory;
 };
 
 #endif

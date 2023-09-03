@@ -4,16 +4,17 @@
 #include <iostream>
 #include <memory>
 
+// TODO 01. You might want to define the std namespace here to avoid repeating the prefix
+
 int main()
 {
-	//creating a shared pointer
-	std::shared_ptr<int> i(new int);//bad
-	std::shared_ptr<int> j(std::make_shared<int>(0));
+	//Different ways to create a shared pointer
+	std::shared_ptr<int> i(new int);//Not the most efficient way to do it
+	std::shared_ptr<int> j(std::make_shared<int>(7));
 
 	*i = 5;
-	*j = 7;
 
-	i = j; //the memory holding '7' is deleted here!
+	i = j; // WHat does it happen here? 
 	return 0;
 }
 
