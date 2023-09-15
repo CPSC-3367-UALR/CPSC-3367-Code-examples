@@ -47,6 +47,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "L08.2.NPC.Steering.Behavior
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "L02.2.Smart.Pointers", "L02.02.Smart.Pointers\L02.02.Smart.Pointers.vcxproj", "{6C0088DA-9AC4-4F6B-A7F1-A723246EE3CD}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "L04.2.SDL2.Sprites.Irconde", "L04.2.SDL2.Sprites.Irconde\L04.2.SDL2.Sprites.Irconde.vcxproj", "{67070EFB-C601-4954-8803-B486E02BBEDA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -213,6 +215,14 @@ Global
 		{6C0088DA-9AC4-4F6B-A7F1-A723246EE3CD}.Release|x64.Build.0 = Release|x64
 		{6C0088DA-9AC4-4F6B-A7F1-A723246EE3CD}.Release|x86.ActiveCfg = Release|Win32
 		{6C0088DA-9AC4-4F6B-A7F1-A723246EE3CD}.Release|x86.Build.0 = Release|Win32
+		{67070EFB-C601-4954-8803-B486E02BBEDA}.Debug|x64.ActiveCfg = Debug|x64
+		{67070EFB-C601-4954-8803-B486E02BBEDA}.Debug|x64.Build.0 = Debug|x64
+		{67070EFB-C601-4954-8803-B486E02BBEDA}.Debug|x86.ActiveCfg = Debug|Win32
+		{67070EFB-C601-4954-8803-B486E02BBEDA}.Debug|x86.Build.0 = Debug|Win32
+		{67070EFB-C601-4954-8803-B486E02BBEDA}.Release|x64.ActiveCfg = Release|x64
+		{67070EFB-C601-4954-8803-B486E02BBEDA}.Release|x64.Build.0 = Release|x64
+		{67070EFB-C601-4954-8803-B486E02BBEDA}.Release|x86.ActiveCfg = Release|Win32
+		{67070EFB-C601-4954-8803-B486E02BBEDA}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

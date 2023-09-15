@@ -75,6 +75,11 @@
     <IncludePath>$(ProjectDir)ThirdParty\SDL2-2.0.7\include;$(ProjectDir)ThirdParty\SDL2_image-2.0.2\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)ThirdParty\SDL2-2.0.7\lib\x86;$(ProjectDir)ThirdParty\SDL2_image-2.0.2\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(ProjectDir)ThirdParty\SDL2_image\include;$(ProjectDir)ThirdParty\SDL2\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)ThirdParty\SDL2_image\lib\x64;$(ProjectDir)ThirdParty\SDL2\lib\x64;$(LibraryPath)</LibraryPath>
+    <OutDir>$(ProjectDir)Game</OutDir>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -99,7 +104,21 @@ xcopy "$(ProjectDir)Assets" "$(ProjectDir)Game\Assets" /E /I /F /Y</Command>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <LanguageStandard>Default</LanguageStandard>
     </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EntryPointSymbol>
+      </EntryPointSymbol>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PreBuildEvent>
+      <Command>copy "$(ProjectDir)ThirdParty\SDL2\lib\x64\*dll" "$(ProjectDir)"
+copy "$(ProjectDir)ThirdParty\SDL2_image\lib\x64\*dll" "$(ProjectDir)"</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>move "$(ProjectDir)*dll" "$(ProjectDir)Game"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
