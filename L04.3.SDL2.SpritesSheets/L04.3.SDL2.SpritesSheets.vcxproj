@@ -158,6 +158,9 @@ copy "$(ProjectDir)ThirdParty\SDL2_ttf\lib\x64\*dll" "$(ProjectDir)"</Command>
     <ClCompile Include="Source\Texture.cpp" />
     <ClCompile Include="Source\Timer.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Images\Megaman.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

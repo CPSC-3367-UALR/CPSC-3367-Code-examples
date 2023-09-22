@@ -79,7 +79,9 @@ void Texture::render(SDL_Renderer* renderer, int x, int y, SDL_Rect* clip) {
 	}
 
 	//Render to screen
-	SDL_RenderCopy(renderer, texture, clip, &renderQuad);
+	// clip can be null
+	// If null, we render the whole image. If not we use the clip to extract different patches out of the original image
+	SDL_RenderCopy(renderer, texture, nullptr, &renderQuad);
 
 }
 

@@ -43,22 +43,14 @@ bool GraphicsDevice::Initialize(bool fullScreen)
 		return(false);
 	}
 
-	if (!fullScreen)
-	{
-		//Construct and check window construction
-		screen = SDL_CreateWindow("Demonstration Window",
-			SDL_WINDOWPOS_UNDEFINED,
-			SDL_WINDOWPOS_UNDEFINED,
-			SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_FULLSCREEN);
-	}
-	else
-	{
-		screen = SDL_CreateWindow("Demonstration Window",
-			SDL_WINDOWPOS_UNDEFINED,
-			SDL_WINDOWPOS_UNDEFINED,
-			SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+	Uint32 windowMode = fullScreen ? SDL_WINDOW_FULLSCREEN : SDL_WINDOW_SHOWN;
 
-	}
+	//Construct and check window construction
+	screen = SDL_CreateWindow("Demonstration Window",
+			SDL_WINDOWPOS_UNDEFINED,
+			SDL_WINDOWPOS_UNDEFINED,
+			SCREEN_WIDTH, SCREEN_HEIGHT, windowMode);
+	
 	if (screen == nullptr)
 	{
 		//printf( "Window could not be created! SDL_Error: %s\n", SDL_GetError() );
