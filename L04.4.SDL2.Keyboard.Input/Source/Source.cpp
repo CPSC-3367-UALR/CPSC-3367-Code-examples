@@ -17,6 +17,7 @@
 #include "Timer.h"
 #include "GameObject.h"
 
+// TODO 1. We analyze the program
 int main(int argc, char *argv[])
 {
 	//Construct Graphical Device
@@ -28,6 +29,7 @@ int main(int argc, char *argv[])
 	}
 
 	//Construct Event
+	// Here we are just allocating enough memory to later store information on a hypothetical captured event
 	SDL_Event* event = new SDL_Event();
 	if(!event){
 		printf( "SDL Event could not initialize! SDL_Error: %s\n", SDL_GetError() );
@@ -55,10 +57,10 @@ int main(int argc, char *argv[])
 		//Start the frame's time
 		fps->start();
 
-		//Check for an event
+		//Check for an event. We check the last event that happened in the system
 		if(SDL_PollEvent( event ))
 		{
-			//Translate Event to QUIT signal
+			//Translate Event to QUIT signal. You can easily see the types of events SDL provides you information about
 			if(event->type == SDL_QUIT)
 			{
 				quit=true;
@@ -68,8 +70,10 @@ int main(int argc, char *argv[])
 		//
 		//Object handles relevant events
 		//
-		object->HandleEvent(event);
+		// TODO 02. We propagate the event to the different objects we have in the game so their state is updated accordingly
+		object->HandleEvent(event); 
 
+		// TODO 05. We first manage the input, we update the state of the object and then we refresh the visualization
 		//
 		//Conduct the update (i.e., physics/animation)
 		//
@@ -88,6 +92,7 @@ int main(int argc, char *argv[])
 
 		//Buffer the Frames per second (if necessary)
 		fps->fpsRegulate();
+
 
 	}
 

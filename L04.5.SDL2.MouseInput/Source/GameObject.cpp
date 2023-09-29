@@ -60,6 +60,10 @@ bool GameObject::Initialize(SDL_Renderer* renderer, std::string path)
 	return(true);
 }
 
+// TODO 07. It is obvious that we need to capture mouse-specific events in this case
+// We can get from the event the position of the mouse cursor and an extra piece of data
+// that indicate whether the mouse is being clicked or not
+
 void GameObject::HandleEvent(SDL_Event* event)
 {
 	switch (event->type)
@@ -82,14 +86,16 @@ void GameObject::HandleEvent(SDL_Event* event)
 	}
 }
 
+// Based on the data extracted from the event we can update the state of the game
 void GameObject::Update()
 {
 
-	//Define sprite boundaries
+	//Define sprite boundaries: the yellow rectangular area
 	float xmin = xPosition;
 	float ymin = yPosition;
 	float xmax = xmin + clipArray[spriteID].w;
 	float ymax = ymin + clipArray[spriteID].h;
+
 
 	//Determine is cursor is over object
 	bool active = false;
@@ -119,6 +125,8 @@ void GameObject::Update()
 		spriteID = SELECT;
 	}
 
+	// TODO 08. the spriteID as you can see acts as an index that indicates which patch of a sprite sheet we need to use. 
+	// see the Draw method
 
 }
 

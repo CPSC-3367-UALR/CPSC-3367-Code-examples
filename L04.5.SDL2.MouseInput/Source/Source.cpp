@@ -16,6 +16,7 @@
 #include "Timer.h"
 #include "GameObject.h"
 
+// TODO 06. Same as in previous example
 int main(int argc, char *argv[])
 {
 	//Construct Graphical Device
