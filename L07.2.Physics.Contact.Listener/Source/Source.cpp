@@ -14,7 +14,7 @@
 
 //Library Headers
 #include "SDL.h"
-#include "Box2D/Box2D.h"
+#include "Box2D.h"
 
 //Game Headers
 #include "GraphicsDevice.h"
@@ -79,15 +79,15 @@ int main(int argc, char *argv[])
 	world->SetDebugDraw(NULL);
 
 	//Create bottom boundary
-	shape.Set(vBottomLeft, vBottomRight);
+	shape.SetTwoSided(vBottomLeft, vBottomRight);
 	edge->CreateFixture(&shape, 0);
 
 	//Create left boundary
-	shape.Set(vBottomLeft, vTopLeft);
+	shape.SetTwoSided(vBottomLeft, vTopLeft);
 	edge->CreateFixture(&shape, 0);
 
 	//Create right boundary
-	shape.Set(vBottomRight, vTopRight);
+	shape.SetTwoSided(vBottomRight, vTopRight);
 	edge->CreateFixture(&shape, 0);
 
 	//
