@@ -15,7 +15,8 @@
 #include "Timer.h"
 #include "GameObject.h"
 #include "GameFunctions.h"
-#include "Box2D/Box2D.h"
+#include "Box2D.h"
+
 
 int main(int argc, char *argv[])
 {
@@ -72,15 +73,15 @@ int main(int argc, char *argv[])
 	world->SetDebugDraw(NULL);
 
 	//Create bottom boundary
-	shape.Set(vBottomLeft, vBottomRight);
+	shape.SetTwoSided(vBottomLeft, vBottomRight);
 	edge->CreateFixture(&shape, 0);
 
 	//Create left boundary
-	shape.Set(vBottomLeft, vTopLeft);
+	shape.SetTwoSided(vBottomLeft, vTopLeft);
 	edge->CreateFixture(&shape, 0);
 
 	//Create right boundary
-	shape.Set(vBottomRight, vTopRight);
+	shape.SetTwoSided(vBottomRight, vTopRight);
 	edge->CreateFixture(&shape, 0);
 
 	//
@@ -95,24 +96,14 @@ int main(int argc, char *argv[])
 	//
 	//Define Distance Joint (Max Distance Constraint)
 	//
-	//b2DistanceJointDef jd;
-	//jd.bodyA = object1->getPhysicsBody();
-	//jd.bodyB = object2->getPhysicsBody();
-	//jd.collideConnected = true;
-	//jd.localAnchorA = jd.bodyA->GetLocalCenter();
-	//jd.localAnchorB = jd.bodyB->GetLocalCenter();
-	//   jd.length = RW2PW(141.0f);
-
-	//
-	//Define Rope Joint (Max Distance Constraint)
-	//
-	b2RopeJointDef jd;
-	jd.maxLength = RW2PW(141.0f);
+	b2DistanceJointDef jd;
 	jd.bodyA = object1->getPhysicsBody();
 	jd.bodyB = object2->getPhysicsBody();
-	jd.collideConnected = false;
+	jd.collideConnected = true;
 	jd.localAnchorA = jd.bodyA->GetLocalCenter();
 	jd.localAnchorB = jd.bodyB->GetLocalCenter();
+	jd.length = RW2PW(141.0f);
+	jd.maxLength = RW2PW(141.0f);
 	//Add the joint to the physics world
 	world->CreateJoint(&jd);
 

@@ -103,7 +103,7 @@ void GameObject::Draw()
 	b2Vec2 position = body->GetPosition();
 	float drawX = PW2RW(position.x) - texture->getWidth() / 2.0f;
 	float drawY = PW2RW(position.y) - texture->getHeight() / 2.0f;
-	float32 angle = body->GetAngle();
+	float angle = body->GetAngle();
 
 	//Render to the Screen
 	texture->renderEx(renderer, (int)drawX, (int)drawY, PW2RWAngle(angle), NULL);
