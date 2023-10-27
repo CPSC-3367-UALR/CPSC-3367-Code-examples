@@ -53,10 +53,10 @@ bool GameObject::Initialize(SDL_Renderer* renderer, std::string path, b2World* w
 	bd.position.Set(RW2PW(200), RW2PW(0));
 	//initial angle SDL2 uses degrees while box2D uses radians. RW2PWAngle translates from degrees to radians!
 	bd.angle = RW2PWAngle(60.0f);
+	// TODO irconde. New way to set userData !!!!
+	bd.userData.pointer = reinterpret_cast<uintptr_t>(this);
 	//Register Body with Physics World. body is a member of this class (not good practice. 
 	body = world->CreateBody(&bd);  
-	//userData is a void* and can store anything! great for finding the body back later!
-	body->SetUserData(this);
 
 	//Set up physics shape. There are several. Box is a rectangle and the height and width are the distance from the center to the edge. i.e. the radii of the rectangle
 	shape.SetAsBox(RW2PW(texture->getWidth() / 2.0f), RW2PW(texture->getHeight() / 2.0f)); //Requires half widths
@@ -121,7 +121,7 @@ void GameObject::Draw()
 	b2Vec2 position = body->GetPosition();
 	float drawX = PW2RW(position.x) - texture->getWidth() / 2.0f;
 	float drawY = PW2RW(position.y) - texture->getHeight() / 2.0f;
-	float32 angle = body->GetAngle();
+	float angle = body->GetAngle();
 
 	//Render to the Screen
 	texture->renderEx(renderer, (int)drawX, (int)drawY, PW2RWAngle(angle), NULL);
