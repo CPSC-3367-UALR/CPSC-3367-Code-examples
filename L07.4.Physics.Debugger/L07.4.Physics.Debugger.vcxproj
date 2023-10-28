@@ -75,6 +75,13 @@
     <IncludePath>$(ProjectDir)ThirdParty\SDL2_gfx-1.0.1\include;$(ProjectDir)ThirdParty\SDL2-2.0.7\include;$(ProjectDir)ThirdParty\SDL2_image-2.0.2\include;$(IncludePath);$(ProjectDir)ThirdParty\Box2D\Box2D;$(ProjectDir)ThirdParty\Box2D</IncludePath>
     <LibraryPath>$(ProjectDir)ThirdParty\SDL2_gfx-1.0.1\lib\x86;$(ProjectDir)ThirdParty\SDL2-2.0.7\lib\x86;$(ProjectDir)ThirdParty\SDL2_image-2.0.2\lib\x86;$(ProjectDir)ThirdParty\Box2D\Box2D\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(ProjectDir)Game\</OutDir>
+    <IntDir>$(ProjectDir)Temp\</IntDir>
+    <ExecutablePath>$(VC_ExecutablePath_x64);$(CommonExecutablePath)</ExecutablePath>
+    <LibraryPath>$(ProjectDir)ThirdParty\Box2D\lib;$(ProjectDir)ThirdParty\SDL2\lib\x64;$(ProjectDir)ThirdParty\SDL2_image\lib\x64;$(ProjectDir)ThirdParty\SDL2_ttf\lib\x64;$(ProjectDir)ThirdParty\SDL2_gfx\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)ThirdParty\Box2D\include\box2d;$(ProjectDir)ThirdParty\SDL2\include;$(ProjectDir)ThirdParty\SDL2_ttf\include;$(ProjectDir)ThirdParty\SDL2_image\include;$(ProjectDir)ThirdParty\SDL2_gfx\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -100,7 +107,21 @@ xcopy "$(ProjectDir)Assets" "$(ProjectDir)Game\Assets" /E /I /F /Y</Command>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;box2d.lib;SDL2_gfx.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PreBuildEvent>
+      <Command>copy "$(ProjectDir)ThirdParty\SDL2\lib\x64\*dll" "$(ProjectDir)"
+copy "$(ProjectDir)ThirdParty\SDL2_image\lib\x64\*dll" "$(ProjectDir)"
+copy "$(ProjectDir)ThirdParty\SDL2_ttf\lib\x64\*dll" "$(ProjectDir)"</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>move "$(ProjectDir)*dll" "$(ProjectDir)Game"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>

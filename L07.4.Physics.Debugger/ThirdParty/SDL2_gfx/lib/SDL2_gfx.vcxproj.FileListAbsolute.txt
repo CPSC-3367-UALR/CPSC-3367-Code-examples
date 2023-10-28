@@ -1,0 +1,1 @@
+C:\Users\irconde\Desktop\CPSC-2377-Code-examples\L07.4.Physics.Debugger\ThirdParty\SDL2_gfx\x64\Debug\SDL2_gfx.lib

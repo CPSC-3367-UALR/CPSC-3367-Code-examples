@@ -52,12 +52,12 @@ void Box2DDebugDraw::DrawSolidPolygon(const b2Vec2 *vertices, int32 vertexCount,
     SDL_SetRenderDrawColor(gDevice->getRenderer(),0,0,0,255);
 }
 
-void Box2DDebugDraw::DrawCircle(const b2Vec2 &center, float32 radius, const b2Color &color) 
+void Box2DDebugDraw::DrawCircle(const b2Vec2 &center, float radius, const b2Color &color) 
 {
 	//Unimplemented
 }
 
-void Box2DDebugDraw::DrawSolidCircle(const b2Vec2 &center, float32 radius, const b2Vec2 &axis, const b2Color &color)
+void Box2DDebugDraw::DrawSolidCircle(const b2Vec2 &center, float radius, const b2Vec2 &axis, const b2Color &color)
 {
     //Unimplemented
 }
@@ -70,4 +70,9 @@ void Box2DDebugDraw::DrawSegment(const b2Vec2 &p1, const b2Vec2 &p2, const b2Col
 void Box2DDebugDraw::DrawTransform(const b2Transform &xf) 
 {
     //Unimplemented
+}
+
+void Box2DDebugDraw::DrawPoint(const b2Vec2& p, float size, const b2Color& color)
+{
+	//Unimplemented
 }
