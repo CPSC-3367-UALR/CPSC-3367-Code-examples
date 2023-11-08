@@ -6,6 +6,9 @@
 #include "GameFunctions.h"
 #include "GraphicsDevice.h"
 
+// TODO 02. Define a class that extends b2Draw
+// b2Draw includes various virtual methods that need to be defined.
+
 class Box2DDebugDraw : public b2Draw {
 
 	public:	

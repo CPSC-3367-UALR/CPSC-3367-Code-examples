@@ -50,12 +50,14 @@ int main(int argc, char *argv[])
 	}
 
 	//
-	//1. Construct Physics World
+	// TODO 1. Construct Physics World
 	//
+	// We first define a vector representing gravity. Why do we only provide a value for the second parameter?
+	// What is that RW2PW ?
 	const b2Vec2 gravity(RW2PW(0), RW2PW(+200));
 	b2World* world = new b2World(gravity);
 
-	//Set boundaries of world (Render->Physics)
+	//Define the boundaries of world (Render->Physics)
 	const b2Vec2 vTopLeft = b2Vec2(RW2PW(0), RW2PW(0));
 	const b2Vec2 vTopRight = b2Vec2(RW2PW(SCREEN_WIDTH), RW2PW(0));
 	const b2Vec2 vBottomLeft = b2Vec2(RW2PW(0), RW2PW(SCREEN_HEIGHT));
@@ -63,7 +65,7 @@ int main(int argc, char *argv[])
 
 	//
 	//Create the world boundaries
-	//
+	// body -> edge -> fixture
 	b2BodyDef bd;
 	b2Body* edge = world->CreateBody(&bd);
 	b2EdgeShape shape;
@@ -85,10 +87,11 @@ int main(int argc, char *argv[])
 	edge->CreateFixture(&shape, 0);
 
 	//
-	//Initialize Game Object
+	// TODO 02. Initialize Game Object
 	//
 	GameObject* object = new GameObject();
 	//2. Add body to world (done in initialize here)
+	// Why do we pass the word as an argument?
 	object->Initialize(gDevice->getRenderer(), "./Assets/Images/PlayerPaper.png", world);
 
 	//Initialize Termination Criteria
@@ -124,6 +127,7 @@ int main(int argc, char *argv[])
 		//
 		//Conduct Physics update
 		//
+		// TODO 03. Trigger the physics solver each iteration of the game loop
 		world->Step(dt, 8, 3);
 
 		//

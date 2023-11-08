@@ -110,7 +110,6 @@ void GameObject::Draw()
 
 	if (command != "")
 	{
-
 		//Render Command to Text
 		SDL_Color textColor = { 255, 255, 51 };
 		SDL_Texture* textSheetTexture = SDL_CreateTextureFromSurface(renderer, TTF_RenderText_Solid(font, command.c_str(), textColor));

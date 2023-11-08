@@ -58,13 +58,24 @@ int main(int argc, char *argv[])
 	b2World* world = new b2World(gravity);
 
 	//
-	//Set-up debugging
+	// TODO 01. Set-up debugging. We need to define the Box2DDebugDraw
 	//
 	Box2DDebugDraw* debugDraw = new Box2DDebugDraw();
 	debugDraw->Initialize(gDevice);
+	// We use flgas to indicate what entities do we want to display in debug mode
+	/**
+	* This will tell the world what class instance it should direct all the drawing instructions to. 
+	* Notice the last part which selects a certain category of debug information to display.
+	* e_shapeBit ( draw shapes )
+	* e_jointBit ( draw joint connections
+	* e_aabbBit ( draw axis aligned bounding boxes )
+	* e_pairBit ( draw broad-phase pairs )
+	* e_centerOfMassBit ( draw a marker at body CoM )
+	**/
 	debugDraw->SetFlags(b2Draw::e_shapeBit | b2Draw::e_aabbBit);  //Turn on shape (red color) and aabb (green) 
 
 																  //Add the Debug Draw to the world
+	// TODO 04
 	if (debugDraw != NULL)
 	{
 		world->SetDebugDraw(debugDraw);

@@ -1,6 +1,8 @@
 #include "Box2DDebugDraw.h"
 #include "SDL2_gfxPrimitives.h"
 
+// TODO 03. It is not necessary to define a body for every single method
+
 Box2DDebugDraw::Box2DDebugDraw() {
 	circleAccuracy = 9;
 }

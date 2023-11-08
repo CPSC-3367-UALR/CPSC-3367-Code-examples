@@ -3,7 +3,7 @@
 
 const float fPRV = 10.0f;
 
-inline float PW2RW(float x) { return x*fPRV; }
+inline float PW2RW(float x) { return x * fPRV; }
 
 inline float RW2PW(float x) { return x / fPRV; }
 

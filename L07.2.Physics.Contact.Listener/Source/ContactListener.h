@@ -5,6 +5,7 @@
 #include"SDL.h"
 #include "Box2D.h"
 
+// TODO 04
 
 class ContactListener : public b2ContactListener
 {
@@ -13,9 +14,11 @@ public:
 
 	void EndContact(b2Contact* contact){}
 
+	// TODO 05. This is called after a contact is updated. 
+	// This allows you to inspect a contact before it goes to the solver.
+
 	void PreSolve(b2Contact* contact, const b2Manifold* oldManifold)
 	{
-		
         //Grab the two Physics Bodies involved in the Contact
 		b2Body* bodyA = contact->GetFixtureA()->GetBody();
 		b2Body* bodyB = contact->GetFixtureB()->GetBody();

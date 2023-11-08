@@ -94,12 +94,14 @@ int main(int argc, char *argv[])
 	object2->Initialize(gDevice->getRenderer(), "./Assets/Images/Ball.png", world, 400, 150);
 
 	//
-	//Define Distance Joint (Max Distance Constraint)
+	// TODO 01. Define Distance Joint (Max Distance Constraint)
 	//
 	b2DistanceJointDef jd;
 	jd.bodyA = object1->getPhysicsBody();
 	jd.bodyB = object2->getPhysicsBody();
+	// The attached bodies should collide
 	jd.collideConnected = true;
+	// Anchor points
 	jd.localAnchorA = jd.bodyA->GetLocalCenter();
 	jd.localAnchorB = jd.bodyB->GetLocalCenter();
 	jd.length = RW2PW(141.0f);

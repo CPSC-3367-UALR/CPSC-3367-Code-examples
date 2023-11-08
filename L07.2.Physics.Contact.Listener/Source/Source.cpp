@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
 	}
 
 	//
-	//Construct Physics World
+	// TODO 01 Construct Physics World
 	//
 	const b2Vec2 gravity(RW2PW(0), RW2PW(+200));
 	b2World* world = new b2World(gravity);
@@ -91,7 +91,7 @@ int main(int argc, char *argv[])
 	edge->CreateFixture(&shape, 0);
 
 	//
-	//Initialize Game Objects
+	// TODO 02 Initialize Game Objects
 	//
 	GameObject* object1 = new GameObject();
 	object1->Initialize(gDevice->getRenderer(), "./Assets/Images/Ball.png", world, 300, 50);
@@ -100,7 +100,7 @@ int main(int argc, char *argv[])
 	object2->Initialize(gDevice->getRenderer(), "./Assets/Images/BallBearing.png", world, 300, 250);
 
 	//
-	//Define Contact Listener
+	// TODO 03 Define Contact Listener
 	//
 	ContactListener* cl = new ContactListener();
 
@@ -140,7 +140,7 @@ int main(int argc, char *argv[])
 		object2->Update(dt);
 
 		//
-		//Conduct Physics update
+		// Conduct Physics update. Trigger the solver each iteration of the game loop
 		//
 		world->Step(dt, 8, 3);
 
