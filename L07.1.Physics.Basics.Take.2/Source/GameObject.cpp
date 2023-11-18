@@ -67,7 +67,7 @@ bool GameObject::Initialize(SDL_Renderer* renderer, std::string path, b2World* w
 
 	//Set up physics shape. There are several. 
 	// Box is a rectangle and the height and width are the distance from the center to the edge. i.e. the radii of the rectangle
-	shape.SetAsBox(RW2PW(texture->getWidth() / 2.0f), RW2PW(texture->getHeight() / 2.0f)); //Requires half widths
+	shape.SetAsBox(RW2PW(0), RW2PW(0)); //Requires half widths
 	
 	//Set up physics fixture (shape, density, restitution)
 	shapefd.shape = &shape;
@@ -108,7 +108,7 @@ void GameObject::HandleEvent(SDL_Event* event)
 
 void GameObject::Update(float dt)
 {
-
+	/*
 	if (command == "left")
 	{
 		body->SetAngularVelocity(body->GetAngularVelocity() - 2.0f*dt);
@@ -118,7 +118,7 @@ void GameObject::Update(float dt)
 	{
 		body->SetAngularVelocity(body->GetAngularVelocity() + 2.0f*dt);
 
-	}
+	}*/
 
 }
 
@@ -127,12 +127,12 @@ void GameObject::Draw()
 
 	//Convert Physics World Position to Render World Position
 	b2Vec2 position = body->GetPosition();
-	float drawX = PW2RW(position.x) - texture->getWidth() / 2.0f;
-	float drawY = PW2RW(position.y) - texture->getHeight() / 2.0f;
+	float drawX = PW2RW(position.x); //- texture->getWidth() / 2.0f;
+	float drawY = PW2RW(position.y); //- texture->getHeight() / 2.0f;
 	float angle = body->GetAngle();
 
 	//Render to the Screen
-	texture->renderEx(renderer, (int)drawX, (int)drawY, PW2RWAngle(angle), NULL);
+	texture->renderEx(renderer, drawX, drawY, PW2RWAngle(angle), NULL);
 
 	if (command != "")
 	{

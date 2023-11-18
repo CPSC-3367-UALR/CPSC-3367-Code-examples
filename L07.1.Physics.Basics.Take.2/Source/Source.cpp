@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
 	//
 	// We first define a vector representing gravity. Why do we only provide a value for the second parameter?
 	// What is that RW2PW ?
-	const b2Vec2 gravity(RW2PW(0), RW2PW(+200));
+	const b2Vec2 gravity(RW2PW(0), RW2PW(+1000));
 	b2World* world = new b2World(gravity);
 
 	//Define the boundaries of world (Render->Physics)
